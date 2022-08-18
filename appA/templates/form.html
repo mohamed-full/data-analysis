@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {{df|safe}}
+    <form action="/excel/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="excel_file">
+        <input type="submit" value="send">
+    </form>
+
+    <div>
+        <ul>
+            <li>plus | + </li>
+            <li>minus | - </li>
+            <li>bibided | / </li>
+        </ul>
+        {% load static %}
+        <a href="{% static 'a10.xls' %}">download excel</a>
+    </div>
+{% endblock %}
